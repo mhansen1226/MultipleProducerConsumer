@@ -1,7 +1,6 @@
 package main;
 
 import java.io.*;
-import java.util.Arrays;
 
 public class Restaurant {
 
@@ -10,8 +9,7 @@ public class Restaurant {
         try {
             BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("Enter file name to test: ");
-            String fileName = "src/main/minions.txt";
-            fileName = userInput.readLine();
+            String fileName = userInput.readLine();
 
             BufferedReader fileReader = new BufferedReader(new FileReader(fileName));
 
@@ -38,7 +36,7 @@ public class Restaurant {
                     new Thread(new Customer(tables[k], customerNames[k])).start();
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Error reading input file");
         }
     }
 }
